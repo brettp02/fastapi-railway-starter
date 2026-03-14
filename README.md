@@ -15,14 +15,16 @@ This template is designed to be deployed to Railway with almost no setup.
 
 Basic flow:
 
-1. Clone this repo.
-2. Push it to your own GitHub repository.
+1. Click `Use this template` on GitHub to create your own repository.
+2. Clone your new repository locally.
 3. Log in to Railway with GitHub.
-4. Create a new project from the GitHub repo.
-5. In Railway settings, add a public networking domain for port `8080`.
-6. Your app should be live.
+4. Create a new Railway project using your new GitHub repository.
+5. In the Railway settings for the new project, generate a public networking domain on port `8080`.
+6. Your app should now be live.
 
 For the default starter app, that can take only a few minutes.
+
+If you prefer, you can also fork this repository or clone it and push it to a new GitHub repository of your own.
 
 The included `railway.toml` already starts the app with:
 
@@ -80,11 +82,11 @@ Open:
 
 ## Local Setup
 
-If you want the full local setup flow:
+If you want the full local setup flow after creating your own repository from the template:
 
 ```bash
-git clone 'https://github.com/brettp02/fastapi-railway-starter.git'
-cd fastapi-railway-starter
+git clone <your-repo-url>
+cd <your-repo-name>
 uv sync
 uv run uvicorn app.main:app --reload
 ```
@@ -131,13 +133,6 @@ You can also override:
 - `APP_APP_DESCRIPTION`
 - `APP_DEBUG`
 
-## Deployment
+## Railway Notes
 
-Railway starts the app using `railway.toml`:
-
-```toml
-[deploy]
-startCommand = "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
-```
-
-As long as your Railway service has the required env vars, no code changes are needed for deployment.
+The deploy command is already configured in `railway.toml`, so no code changes are needed for a basic Railway deploy.
