@@ -1,12 +1,93 @@
-# Python-generated files
+# OS / filesystem
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/
+.fleet/
+*.swp
+*.swo
+*~
+
+# Python bytecode / native extensions
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging / build artifacts
+.Python
 build/
 dist/
+downloads/
+develop-eggs/
+.eggs/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+site/
+var/
 wheels/
-*.egg-info
+share/python-wheels/
+pip-wheel-metadata/
+*.egg
+*.egg-info/
+MANIFEST
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
+ENV/
+__pypackages__/
+.python-version
 
+# Environment / local secrets
 .env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.envrc.local
+.direnv/
+
+# Test, coverage, and tool caches
+.coverage
+.coverage.*
+.cache/
+.hypothesis/
+.mypy_cache/
+.nox/
+.pyre/
+.pytest_cache/
+.pytype/
+.ruff_cache/
+.tox/
+coverage.xml
+htmlcov/
+*.cover
+*.py,cover
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs / runtime files
+*.log
+*.out
+*.pid
+*.pid.lock
+
+# Local databases / app state
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Misc Python tooling
+.benchmarks/
+.dmypy.json
+dmypy.json
+cython_debug/
