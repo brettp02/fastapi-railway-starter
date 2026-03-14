@@ -1,12 +1,14 @@
 # FastAPI Railway Starter
 
-Minimal FastAPI starter template for small backend services, internal tools, ML/AI APIs, and data-focused projects.
+Minimal FastAPI starter template for small backend services, internal tools, ML/AI APIs, and data-focused projects. Managed with `uv` and deployable to Railway in minutes.
 
+[![CI](https://github.com/brettp02/fastapi-railway-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/brettp02/fastapi-railway-starter/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-ready-009688?logo=fastapi&logoColor=white)
 ![Railway](https://img.shields.io/badge/Railway-deploy%20ready-0B0D0E?logo=railway&logoColor=white)
 ![uv](https://img.shields.io/badge/managed%20with-uv-6E56CF)
 ![Ruff](https://img.shields.io/badge/lint-ruff-D7FF64?logo=ruff&logoColor=000000)
+
 ## Deploy In Minutes
 
 This template is designed to be deployed to Railway with almost no setup.
@@ -64,6 +66,8 @@ You do not need to use every directory immediately. They are included as sensibl
 
 ## Quick Start
 
+If you are already inside the repo:
+
 ```bash
 uv sync
 uv run uvicorn app.main:app --reload
@@ -73,6 +77,17 @@ Open:
 
 - `http://127.0.0.1:8000/docs`
 - `http://127.0.0.1:8000/health`
+
+## Local Setup
+
+If you want the full local setup flow:
+
+```bash
+git clone 'https://github.com/brettp02/fastapi-railway-starter.git'
+cd fastapi-railway-starter
+uv sync
+uv run uvicorn app.main:app --reload
+```
 
 ## Development Commands
 
