@@ -7,7 +7,6 @@ Minimal FastAPI starter template for small backend services, internal tools, ML/
 ![Railway](https://img.shields.io/badge/Railway-deploy%20ready-0B0D0E?logo=railway&logoColor=white)
 ![uv](https://img.shields.io/badge/managed%20with-uv-6E56CF)
 ![Ruff](https://img.shields.io/badge/lint-ruff-D7FF64?logo=ruff&logoColor=000000)
-
 ## Deploy In Minutes
 
 This template is designed to be deployed to Railway with almost no setup.
@@ -42,6 +41,26 @@ Once deployed, Railway should serve:
 - Environment-driven settings via `pydantic-settings`
 - Basic stdout logging suitable for Railway
 - `pytest` and `ruff` wired in
+
+## Project Structure
+
+```text
+app/
+  api/
+    routers/
+  core/
+  schemas/
+  services/
+tests/
+```
+
+- `app/api/routers/` contains FastAPI route modules and endpoint definitions.
+- `app/core/` contains application-wide setup such as settings, logging, and shared infrastructure code.
+- `app/schemas/` is a place for Pydantic request and response models as the API grows.
+- `app/services/` is a place for application logic such as model loading, inference code, third-party API clients, database operations, or other reusable business logic.
+- `tests/` contains the test suite.
+
+You do not need to use every directory immediately. They are included as sensible starting points, not rigid rules.
 
 ## Quick Start
 
