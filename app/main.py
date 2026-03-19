@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
-from app.api.routers import health
+from app.api.api import api_router
 from app.core.config import get_settings
 from app.core.logging import configure_logging
 
@@ -36,7 +36,7 @@ def create_app() -> FastAPI:
     async def root() -> RedirectResponse:
         return RedirectResponse(url="/docs")
 
-    app.include_router(health.router)
+    app.include_router(api_router)
     return app
 
 
