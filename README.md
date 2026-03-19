@@ -51,6 +51,7 @@ Once deployed, Railway should serve:
 ```text
 app/
   api/
+    api.py
     routers/
   core/
   schemas/
@@ -58,6 +59,7 @@ app/
 tests/
 ```
 
+- `app/api/api.py` is the single place where all routers are registered. `main.py` includes this once, so adding a new router only requires a change here.
 - `app/api/routers/` contains FastAPI route modules and endpoint definitions.
 - `app/core/` contains application-wide setup such as settings, logging, and shared infrastructure code.
 - `app/schemas/` is a place for Pydantic request and response models as the API grows.
@@ -132,6 +134,10 @@ You can also override:
 - `APP_APP_NAME`
 - `APP_APP_DESCRIPTION`
 - `APP_DEBUG`
+
+## Logging Notes
+
+Logs from `uvicorn.error` are expected and normal. Despite the name, uvicorn uses that logger for general messages like startup and shutdown, not just errors. Seeing it in your logs does not mean something is wrong.
 
 ## Railway Notes
 
