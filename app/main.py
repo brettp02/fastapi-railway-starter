@@ -8,7 +8,6 @@ from fastapi.responses import RedirectResponse
 from app.api.api import api_router
 from app.core.config import get_settings
 from app.core.logging import configure_logging
-from app.db.database import create_db_and_tables
 
 
 def create_app() -> FastAPI:
@@ -18,7 +17,6 @@ def create_app() -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-        create_db_and_tables()
         logger.info(
             "Starting %s in %s environment",
             settings.app_name,
