@@ -43,7 +43,6 @@ venv/
 env/
 ENV/
 __pypackages__/
-.python-version
 
 # Environment / local secrets
 .env

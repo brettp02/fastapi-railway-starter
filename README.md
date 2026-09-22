@@ -100,6 +100,37 @@ uv run pytest
 uv run ruff check .
 ```
 
+## Dependency Maintenance
+
+Dependabot is configured to check Python dependencies and GitHub Actions monthly.
+It starts opening update pull requests once `.github/dependabot.yml` is on the
+repository's default branch. Review release notes and let CI pass before merging.
+
+For a manual dependency refresh:
+
+```bash
+git switch -c chore/update-dependencies
+uv lock --upgrade
+uv sync --locked
+uv run --locked pytest -q
+uv run --locked ruff check .
+git diff -- uv.lock
+```
+
+Commit the updated `uv.lock` after reviewing the changes. Plain `uv sync` installs
+the locked versions; it does not routinely upgrade them. To update one package,
+use `uv lock --upgrade-package fastapi` instead of `uv lock --upgrade`.
+
+Keep the minimum versions in `pyproject.toml` unless a newer feature or fix is
+required. Local development and CI use the Python version in `.python-version`.
+The tests exercise application startup/shutdown, health, docs, OpenAPI, settings,
+and the root redirect. Before rolling an upgrade into production, smoke-test
+`/health`, `/docs`, and `/openapi.json` on a Railway preview deployment and check
+the startup logs.
+
+Projects created from this template need their own dependency updates; later
+template changes are not automatically applied to existing projects.
+
 ## Configuration
 
 Application settings live in `app/core/config.py`.
